@@ -1,0 +1,25 @@
+access:
+  configure:
+    admin: allow
+commands_admin_access: configure
+modules:
+  mod_rest:
+    allowed_ips:
+      - "allowed_ips"
+    allowed_destinations:
+      - "all"
+    allowed_stanza_types:
+      - "all"
+    access_command:
+      configure:
+        - register
+        - unregister
+        - status
+        - registered_users
+        - connected_users
+listen:
+  - 
+    port: 5285
+    module: ejabberd_http
+    request_handlers:
+       "/rest": mod_rest
